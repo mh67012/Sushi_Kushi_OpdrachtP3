@@ -41,67 +41,260 @@
 </header>
 
 <main class="admin-page">
-
+  
   <div class="container">
-            </td>
-          </form>
-        </tr>
-      </table>
-    </div>
+  
 
-    <div class="card" id="reservations">
-      <h2>Reservations</h2>
+    <!--Overlay -->
+    <section class="admin-overview">
+      <div class="overview-card">
+        <span class="overview-label">Gerechten</span>
+        <h3>639</h3>
+      </div>
+
+      <div class="overview-card">
+        <span class="overview-label">Customers</span>
+        <h3>693</h3>
+      </div>
+
+      <div class="overview-card">
+        <span class="overview-label">Recent Orders</span>
+        <h3>693</h3>
+      </div>
+
+      <div class="overview-card">
+        <span class="overview-label">Reserveringen</span>
+        <h3>693</h3>
+      </div>
+    </section>
+
+    <!-- Recente orders-->
+    <section class="card admin-section" id="recent-orders">
+      <div class="section-head">
+        
+        <h2>Recent Orders</h2>
+      </div>
+      <div class="admin-box">
       <table>
         <tr>
           <th>ID</th>
-          <th>Name</th>
-          <th>Guests</th>
-          <th>Time</th>
-          <th>Actions</th>
+          <th>Klant</th>
+          <th>Bestelling</th>
+          <th>Status</th>
+          <th>Optie</th>
         </tr>
 
         <tr>
-          <form method="POST" action="process_reservation.php">
-            <td><input type="hidden" name="id" value="1"></td>
-            <td><input type="text" name="name" value="Van Dijk"></td>
-            <td><input type="number" name="guests" value="4"></td>
-            <td><input type="text" name="time" value="19:00"></td>
-            <td>
-              <div class="actions">
-                <button class="btn-update" type="submit" name="action" value="update">Update</button>
-                <button class="btn-delete" type="submit" name="action" value="delete" onclick="return confirm('Delete this reservation?')">Delete</button>
-              </div>
-            </td>
-          </form>
+          <td>1</td>
+          <td>David</td>
+          <td>Dragon Roll</td>
+          <td>In behandeling</td>
+          <td>
+            <div class="actions">
+              <button class="btn-update" type="button">Bekijk</button>
+              <button class="btn-delete" type="button">Verwijder</button>
+            </div>
+          </td>
+        </tr>
+
+        <tr>
+          <td>2</td>
+          <td>name</td>
+          <td>Spicy Tuna Roll</td>
+          <td>Afgerond</td>
+          <td>
+            <div class="actions">
+              <button class="btn-update" type="button">Bekijk</button>
+              <button class="btn-delete" type="button">Verwijder</button>
+            </div>
+          </td>
+        </tr>
+
+        <tr>
+          <td>3</td>
+          <td>name</td>
+          <td>Salmon Sashimi</td>
+          <td>Klaar</td>
+          <td>
+            <div class="actions">
+              <button class="btn-update" type="button">Bekijk</button>
+              <button class="btn-delete" type="button">Verwijder</button>
+            </div>
+          </td>
         </tr>
       </table>
-    </div>
+      </div>
+    </section>
 
-    <div class="card" id="staff">
-      <h2>Staff</h2>
+    <!-- Klanten -->
+    <section class="card admin-section" id="customers">
+      <div class="section-head">
+        <h2>Klanten</h2>
+      </div>
+      <div class="admin-box">
       <table>
         <tr>
           <th>ID</th>
-          <th>Name</th>
-          <th>Role</th>
-          <th>Actions</th>
+          <th>Naam</th>
+          <th>Email</th>
+          <th>Optie</th>
         </tr>
 
         <tr>
-          <form method="POST" action="process_staff.php">
-            <td><input type="hidden" name="id" value="1"></td>
-            <td><input type="text" name="name" value="Hiro"></td>
-            <td><input type="text" name="role" value="Head Chef"></td>
-            <td>
-              <div class="actions">
-                <button class="btn-update" type="submit" name="action" value="update">Update</button>
-                <button class="btn-delete" type="submit" name="action" value="delete" onclick="return confirm('Delete this staff member?')">Delete</button>
-              </div>
-            </td>
-          </form>
+          <td>1</td>
+          <td>fon ton</td>
+          <td>don@email.com</td>
+          <td>
+            <div class="actions">
+              <button class="btn-update" type="button">Bekijk</button>
+              <button class="btn-delete" type="button">Verwijder</button>
+            </div>
+          </td>
+        </tr>
+
+        <tr>
+          <td>2</td>
+          <td>sii</td>
+          <td>sii@email.com</td>
+          <td>
+            <div class="actions">
+              <button class="btn-update" type="button">Bekijk</button>
+              <button class="btn-delete" type="button">Verwijder</button>
+            </div>
+          </td>
         </tr>
       </table>
-    </div>
+      </div>
+    </section>
+
+    <!-- MENU BEHEER -->
+    <section class="card admin-section" id="menu-management">
+      <div class="section-head">
+        <h2>Menu Beheer</h2>
+        <a href="add_dish.php" class="btn-update">Nieuw gerecht</a>
+      </div>
+
+      <div class="admin-box">
+      <table>
+        <tr>
+          <th>ID</th>
+          <th>Gerecht</th>
+          <th>Categorie</th>
+          <th>Optie</th>
+        </tr>
+
+        <tr>
+          <td>1</td>
+          <td>Dragon Roll</td>
+          <td>Sushi</td>
+          <td>
+            <div class="actions">
+              <a href="edit_dish.php?id=1" class="btn-update">Aanpassen</a>
+              <a href="delete_dish.php?id=1" class="btn-delete">Verwijderen</a>
+            </div>
+          </td>
+        </tr>
+
+        <tr>
+          <td>2</td>
+          <td>Salmon Sashimi</td>
+          <td>Sashimi</td>
+          <td>
+            <div class="actions">
+              <a href="edit_dish.php?id=2" class="btn-update">Aanpassen</a>
+              <a href="delete_dish.php?id=2" class="btn-delete">Verwijderen</a>
+            </div>
+          </td>
+        </tr>
+      </table>
+      </div>
+    </section>
+
+    <!-- RESERVATIONS -->
+    <section class="card admin-section" id="reservations">
+      <div class="section-head">
+        <h2>Reservations</h2>
+      </div>
+    <div class="admin-box">
+      <table>
+        <tr>
+          <th>ID</th>
+          <th>Naam</th>
+          <th>Gasten</th>
+          <th>Tijd</th>
+          <th>Optie</th>
+        </tr>
+
+        <tr>
+          <td>1</td>
+          <td>Van Dijk</td>
+          <td>4</td>
+          <td>19:00</td>
+          <td>
+            <div class="actions">
+              <button class="btn-update" type="button">Update</button>
+              <button class="btn-delete" type="button">Delete</button>
+            </div>
+          </td>
+        </tr>
+
+        <tr>
+          <td>2</td>
+          <td>Bakker</td>
+          <td>2</td>
+          <td>20:30</td>
+          <td>
+            <div class="actions">
+              <button class="btn-update" type="button">Update</button>
+              <button class="btn-delete" type="button">Delete</button>
+            </div>
+          </td>
+        </tr>
+      </table>
+      </div>
+    </section>
+
+    <!-- CONTACT BERICHTEN -->
+    <section class="card admin-section" id="messages">
+      <div class="section-head">
+        <h2>Contact Berichten</h2>
+      </div>
+      <div class="admin-box">
+      <table>
+        <tr>
+          <th>ID</th>
+          <th>Naam</th>
+          <th>Onderwerp</th>
+          <th>Optie</th>
+        </tr>
+
+        <tr>
+          <td>1</td>
+          <td>Emma</td>
+          <td>Vraag over reservering</td>
+          <td>
+            <div class="actions">
+              <button class="btn-update" type="button">Lezen</button>
+              <button class="btn-delete" type="button">Verwijder</button>
+            </div>
+          </td>
+        </tr>
+
+        <tr>
+          <td>2</td>
+          <td>Mo</td>
+          <td>Allergieën menu</td>
+          <td>
+            <div class="actions">
+              <button class="btn-update" type="button">Lezen</button>
+              <button class="btn-delete" type="button">Verwijder</button>
+            </div>
+          </td>
+        </tr>
+      </table>
+      </div>
+    </section>
+
   </div>
 </main>
  <!-- FOOTER -->

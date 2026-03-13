@@ -2,11 +2,9 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-weight: bold;
-    font-family: Arial, sans-serif;
-    /*outline: darkcyan 2px solid;*/
+    /* outline: darkcyan 2px solid; */
 }
-
+  
 /*CLASSES FOR WEBSITE*/
 .padding-div{padding:12px;}
 .justify-center{ display: flex; justify-content: center; align-items: center;}
@@ -28,6 +26,10 @@ body {
   background-size: cover;
   background-attachment: fixed;
   background-color: rgb(0, 0, 0); 
+  
+  font-family: Arial, sans-serif;
+  font-weight: 400;
+
 }
 
 
@@ -282,12 +284,6 @@ main {
    ========================= */
 
 
-.home-page .padding-section,
-.home-page .content-section,
-.home-page .promo-section{
-
-}
-
 
 .home-page .padding-section{
   padding: 16px 14px; 
@@ -303,10 +299,6 @@ main {
 .home-page .content-section .container{
   width: min(1000px, 100%);
             
-}
-
-.home-page .promo-section{
-
 }
 
 
@@ -627,6 +619,195 @@ main {
     font-size: 34px;
   }
 }
+
+
+/* ADMIN PAGE */
+.admin-page {
+  padding: 30px 20px 60px;
+}
+
+.admin-page .container {
+  width: min(1400px, 100%);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* OVERVIEW */
+.admin-overview {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.overview-card {
+  background: rgba(2, 7, 25, 0.92);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 22px;
+  padding: 28px 24px;
+  color: white;
+  text-align: center;
+}
+
+.overview-label {
+  display: block;
+  color: rgba(255,255,255,0.65);
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.overview-card h3 {
+  font-size: 34px;
+  color: white;
+}
+
+/* SECTION */
+.admin-section {
+  background: rgba(2, 7, 25, 0.94);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 26px;
+  padding: 24px;
+}
+
+.section-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+
+.section-head h2 {
+  color: white;
+  font-size: 32px;
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+/* BINNENSTE BOX */
+.admin-box {
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 18px;
+  padding: 16px;
+  background: rgba(255,255,255,0.02);
+  overflow-x: auto;
+}
+
+/* TABLE */
+.admin-box table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.admin-box th,
+.admin-box td {
+  text-align: left;
+  padding: 14px 10px;
+  vertical-align: middle;
+}
+
+.admin-box th {
+  color: #bfc7d8;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  font-weight: 700;
+}
+
+.admin-box td {
+  color: white;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  font-weight: 400;
+}
+
+.admin-box tr:last-child td {
+  border-bottom: none;
+}
+
+/* ACTIES */
+.admin-box td:last-child {
+  width: 230px;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: nowrap;
+}
+
+.inline-form {
+  display: inline;
+  margin: 0;
+}
+
+/* BUTTONS + LINKS GELIJK */
+.btn-update,
+.btn-delete {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 100px;
+  height: 38px;
+  padding: 0 16px;
+  border-radius: 12px;
+  font-size: 13px;
+  line-height: 1;
+  white-space: nowrap;
+  text-decoration: none;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.btn-update {
+  background: crimson;
+  color: white;
+  border: none;
+}
+
+.btn-delete {
+  background: transparent;
+  color: white;
+  border: 1px solid rgba(255,255,255,0.18);
+}
+
+/* BUTTON RESET */
+button.btn-update,
+button.btn-delete {
+  appearance: none;
+  -webkit-appearance: none;
+  font-family: inherit;
+}
+
+/* RESPONSIVE */
+@media (max-width: 1000px) {
+  .admin-overview {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 700px) {
+  .admin-overview {
+    grid-template-columns: 1fr;
+  }
+
+  .section-head {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .actions {
+    flex-wrap: wrap;
+  }
+
+  .admin-box td:last-child {
+    width: auto;
+  }
+
+  .btn-update,
+  .btn-delete {
+    min-width: 90px;
+  }
+}
+
 
 /* Footer */
 
