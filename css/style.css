@@ -1,0 +1,698 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-weight: bold;
+    font-family: Arial, sans-serif;
+    /*outline: darkcyan 2px solid;*/
+}
+
+/*CLASSES FOR WEBSITE*/
+.padding-div{padding:12px;}
+.justify-center{ display: flex; justify-content: center; align-items: center;}
+.padding-section{ padding: 40px 20px;}
+
+/*html,body css*/
+
+html, body {
+    min-height: 100%;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-image: url("../img/background.jpg");
+  background-repeat: repeat;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  background-color: rgb(0, 0, 0); 
+}
+
+
+
+/* Header */
+header{
+  width: 100%;
+  height: 120px;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  padding: 0 20px;
+
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  border: 1px solid rgb(103, 36, 36);
+  background: rgba(126, 25, 25, 0.3);
+  backdrop-filter: blur(2px);
+  overflow: hidden;
+}
+
+.nav-buttons{
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+}
+
+.nav-buttons a{
+  text-decoration: none;
+  color: rgb(179, 154, 118);
+  padding: 9px;
+  border-radius: 6px;
+  border: 1px solid rgb(46, 32, 32);
+  background: rgba(126, 25, 25, 0.3);
+  backdrop-filter: blur(2px);
+}
+
+.logo{
+  width: 80px;
+  height: 80px;
+}
+
+.right-side{
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;     /* sushi top, icons bottom */
+  align-items: flex-end;
+}
+
+.sushi-logo-right{
+  width: 200px;                      /* fits inside header */
+  object-fit: contain;
+}
+
+.right-icons{
+  width: 200px;                       /* same as bamboo width */
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.icon{
+  width: 34px;
+  height: 34px;
+  object-fit: contain;
+  display: block;
+}
+
+.wagen-icon{
+  width: 34px;
+  height: 30px;
+}
+
+/* main sections */
+
+main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* SECTION met eigen achtergrond */
+.zoom-section {
+  padding: 70px 0px;
+  min-height: 50vh;
+  background-image: url("../img/suhsibaord.jpg"); /* <-- verander dit */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border: 1px solid rgba(126, 25, 25, 0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+}
+
+
+.zoom-card {
+  background: rgba(0, 0, 0, 0.55);
+  color: white;
+
+  padding: 30px;
+  border-radius: 15px;
+  text-align: center;
+
+  max-width: 600px;
+}
+
+/* Knoppen */
+.zoom-actions {
+  margin-top: 20px;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+.zoom-btn {
+  padding: 10px 18px;
+  border-radius: 10px;
+  text-decoration: none;
+  background: crimson;
+  color: white;
+}
+
+.zoom-btn-outline {
+  background: transparent;
+  border: 2px solid white;
+}
+
+/* section 2*/
+
+.content-section{
+  padding: 20px 40px;
+  background: #0f0f12;
+  color: #ffffff;
+  font-family: Arial, sans-serif;
+}
+
+
+.content-section .container{
+  width: min(1000px, calc(100% - 32px));
+}
+
+.content-section h2{
+
+  font-size: 28px;
+}
+
+.content-section p{
+  opacity: 0.8;
+}
+
+.cards{
+  line-height: 1.7;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.card{
+  background: rgba(189, 78, 78, 0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 16px;
+  padding: 16px;
+}
+
+.card h3{
+  font-size: 18px;
+}
+
+.card p{
+  opacity: 0.8;
+}
+
+.btn{
+  margin-top: 20px;
+  display: flex;     
+  justify-content: center; 
+  padding: 8px 10px;         
+  background: crimson;
+  color: white;
+  text-decoration: none;
+  border-radius: 12px;
+}
+
+.btn:hover{
+  opacity: 0.9;
+}
+
+/* section 3*/
+
+.delivery-section .list{
+  padding-left: 18px;
+  opacity: 0.85;
+}
+
+.delivery-section .list li{
+}
+
+/* 4 section met andere background */
+.promo-section{             
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid rgb(103, 36, 36);
+
+  background-image: url("../img/What-to-Drink-with-Sushi.jpg"); 
+  background-size: cover;
+  background-position: right;
+  background-repeat: no-repeat;
+  background-size: 50%;
+}
+
+.promo-overlay{
+  padding: 70px 0;
+  background: rgba(0, 0, 0, 0.55);    
+  backdrop-filter: blur(2px);
+}
+
+.promo-container{
+  width: min(1000px, calc(100% - 32px));
+  color: white;
+}
+
+.promo-container h2{
+  font-size: 28px;
+}
+
+.promo-container p{
+  opacity: 0.85;
+  max-width: 60ch;
+}
+
+.promo-actions{
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+
+.btn.btn-outline{
+  background: transparent;
+  border: 2px solid white;
+}
+
+@media (max-width: 600px){
+  .promo-overlay{ padding: 50px 0; }
+}
+
+/* =========================
+  
+   ========================= */
+
+
+.home-page .padding-section,
+.home-page .content-section,
+.home-page .promo-section{
+
+}
+
+
+.home-page .padding-section{
+  padding: 16px 14px; 
+}
+
+
+.home-page .content-section{
+  padding: 24px 14px;        
+  display: flex;
+  justify-content: center;  
+}
+
+.home-page .content-section .container{
+  width: min(1000px, 100%);
+            
+}
+
+.home-page .promo-section{
+
+}
+
+
+.home-page .promo-overlay{
+  padding: 60px 14px; 
+}
+
+.home-page .promo-container{
+  width: min(1000px, 100%);
+}
+
+/* responsive cards */
+@media (max-width: 900px){
+  .home-page .cards{ grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 560px){
+  .home-page .content-section{ padding: 18px 12px; }
+  .home-page .cards{ grid-template-columns: 1fr; }
+  .home-page .promo-overlay{ padding: 46px 12px; }
+}
+
+/* MENU PAGE */
+/* MENU PAGE */
+/* MENU PAGE */
+
+.menu-page,
+.menu-page * { box-sizing: border-box; }
+
+.menu-page { margin: 0; }
+.menu-page h1,
+.menu-page h2,
+.menu-page h3,
+.menu-page p { margin: 0; }
+
+/* layout */
+.menu-page .menu-main{
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 16px;
+}
+
+/* inner wrapper */
+.menu-page .menu-inner{
+  width: 100%;
+  padding: 0 8px;
+  align-self: center;
+}
+
+/*  hele menu page + hero */
+.menu-page .menu-hero{
+  padding: 18px 0;
+}
+
+.menu-page .menu-topline{
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px;
+  border-radius: 16px;
+  border: 1px solid rgba(255,255,255,0.10);
+  background: rgba(8, 10, 18, 0.70);
+  backdrop-filter: blur(6px);
+}
+
+.menu-page .menu-titlewrap{
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.menu-page .menu-title{
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(34px, 6vw, 58px);
+  color: white;
+  letter-spacing: 0.5px;
+}
+
+.menu-page .menu-subtitle{
+  font-size: 14px;
+  color: rgba(255,255,255,0.72);
+}
+
+/*alle menu  */
+.menu-page .menu-total{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: 999px;
+  background: rgba(59, 10, 10, 0.14);
+  border: 1px solid crimson(255, 46, 115, 0.28);
+  color: rgba(255,255,255,0.92);
+  white-space: nowrap;
+}
+
+.menu-page .menu-total-label{
+  font-size: 12px;
+  opacity: 0.85;
+}
+
+.menu-page .menu-total-amount{
+  font-size: 14px;
+  font-weight: 700;
+}
+
+/* sections */
+.menu-page .menu-section{
+  display: flex;
+  flex-direction: column;
+}
+
+.menu-page .menu-panel{
+  padding: 16px;
+  border-radius: 16px;
+  border: 1px solid rgba(255,255,255,0.10);
+  background: rgba(10, 14, 28, 0.68);
+  backdrop-filter: blur(6px);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.menu-page .menu-heading{
+  text-align: center;
+  color: white;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(18px, 3.5vw, 28px);
+}
+
+.menu-page .menu-heading-italic{
+  font-style: italic;
+}
+
+/* grid auto fit for beeldscherm*/
+.menu-page .menu-grid{
+  display: grid;
+  gap: 12px;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+}
+
+/* Card fwith food */
+.menu-page .menu-card{
+  padding: 16px;
+  border-radius: 14px;
+  border: 1px solid rgba(255,255,255,0.10);
+  background: rgba(0,0,0,0.25);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.menu-page .menu-icon{
+  font-size: 30px;
+  line-height: 1;
+}
+
+.menu-page .menu-name{
+  color: rgba(255,255,255,0.95);
+  font-size: 16px;
+  text-align: center;
+}
+
+.menu-page .menu-price{
+  color: rgb(255, 46, 115);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 18px;
+}
+
+/* screen phone */
+@media (max-width: 520px){
+  .menu-page .menu-main{ padding: 12px; }
+  .menu-page .menu-topline{
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .menu-page .menu-total{
+    justify-content: space-between;
+    width: 100%;
+  }
+}
+
+/* Gallerie page */
+
+/* GALERIE PAGE ONLY */
+
+/* GALERIE SINGLE IMAGE */
+
+.galerie-page .galerie-main {
+  width: min(1280px, calc(100% - 40px));
+  margin: 40px auto 90px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.galerie-page .gallery-title-block {
+  text-align: center;
+  padding: 10px 10px 0;
+}
+
+.galerie-page .gallery-label {
+  display: inline-block;
+  color: rgb(179, 154, 118);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 12px;
+  margin-bottom: 12px;
+}
+
+.galerie-page .gallery-title-block h1 {
+  font-size: clamp(36px, 6vw, 62px);
+  color: white;
+  margin-bottom: 12px;
+}
+
+.galerie-page .gallery-title-block p {
+  max-width: 720px;
+  margin: 0 auto;
+  color: rgba(255,255,255,0.78);
+  line-height: 1.8;
+}
+
+/* zelfde vibe als footer/header */
+.galerie-page .gallery-single-wrap {
+  display: flex;
+  justify-content: center;
+}
+
+.galerie-page .gallery-single-frame {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  min-height: 650px;
+  overflow: hidden;
+  border-radius: 24px;
+  border: 1px solid rgb(103, 36, 36);
+  background: rgba(126, 25, 25, 0.3);
+  backdrop-filter: blur(2px);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
+}
+
+.galerie-page .gallery-single-image {
+  width: 100%;
+  height: 100%;
+  min-height: 650px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s ease, opacity 0.6s ease;
+}
+
+.galerie-page .gallery-single-frame:hover .gallery-single-image {
+  transform: scale(1.03);
+  opacity: 0.92;
+}
+
+.galerie-page .gallery-single-overlay {
+  position: absolute;
+  left: 30px;
+  right: 30px;
+  bottom: 30px;
+  max-width: 520px;
+  padding: 24px;
+  border-radius: 18px;
+  border: 1px solid rgb(103, 36, 36);
+  background: rgba(126, 25, 25, 0.3);
+  backdrop-filter: blur(2px);
+  color: white;
+}
+
+.galerie-page .gallery-mini-label {
+  display: inline-block;
+  color: rgb(179, 154, 118);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: 10px;
+}
+
+.galerie-page .gallery-single-overlay h2 {
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+.galerie-page .gallery-single-overlay p {
+  color: rgba(255,255,255,0.86);
+  line-height: 1.8;
+}
+
+/* mobiel */
+@media (max-width: 768px) {
+  .galerie-page .galerie-main {
+    width: min(100%, calc(100% - 20px));
+    margin: 20px auto 70px;
+  }
+
+  .galerie-page .gallery-single-frame,
+  .galerie-page .gallery-single-image {
+    min-height: 420px;
+  }
+  
+  .galerie-page .gallery-single-overlay {
+    left: 16px;
+    right: 16px;
+    bottom: 16px;
+    padding: 18px;
+  }
+
+  .galerie-page .gallery-single-overlay h2 {
+    font-size: 24px;
+  }
+
+  .galerie-page .gallery-title-block h1 {
+    font-size: 34px;
+  }
+}
+
+/* Footer */
+
+.left-side-footer{
+    gap: 3px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+
+}
+
+.legal-links{
+    font-size: 10px;
+    color: darkgray;
+    padding: 2px;
+}
+
+.legal-links a{
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.legal-links a:hover{
+    color: white;
+    text-decoration: underline;
+}
+
+.copyright{
+  color:crimson;
+  display: flex;
+  margin-left: 10px;
+  font-size: 8px;
+}
+
+/* Right side footer */
+
+.right-side-footer{
+    display: flex;
+    justify-content: right;
+    padding: 0 20px;
+}
+
+.right-side-footer div a img {
+    width: 2px;
+    height: 2px;
+    min-width: 27px;
+    min-height: 27px;
+    object-fit: contain;
+}
+
+.right-side-footer div a img:hover {
+    transform: scale(1.10);
+}
+
+/* Border footer */
+
+.border-footer{
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    backdrop-filter: blur(2px);
+    border: 1px solid rgb(103, 36, 36);
+    background:rgba(126, 25, 25, 0.3);
+    height: 113px;
+}
+
