@@ -1,3 +1,7 @@
-conn.php
-../dbcalls
-.../menukaart
+.vscode/ # Ignore Visual Studio Code workspace settings
+.DS_Store # Ignore macOS Finder metadata files
+Thumbs.db # Ignore Windows thumbnail cache files
+*.log # Ignore log files
+.env # Ignore environment variable files     
+mysql_data/ # Ignore MySQL database data
+db_data/ # Ignore database data
