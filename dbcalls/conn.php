@@ -1,23 +1,15 @@
 <?php
 
-$host = "db";
-$username = "user";
-$password = "password";
-$dbname = "mydatabase";
+$config = require __DIR__ . '/../config/db.php';
 
 try {
-    $conn = new PDO("mysql:host=$host;dbname=$dbname", $username, $password,)
+    $conn = new PDO(
+        "mysql:host={$config['host']};dbname={$config['dbname']};charset=utf8mb4",
+        $config['user'],
+        $config['pass']
+    );
+
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-} catch(PDOException $e) {
-echo "Connection failed: " . $e->getMessage();
+} catch (PDOException $e) {
+    die('Database connectie mislukt.');
 }
-
-$sql = "SELECT naan FROM clients";
-$stmt = $conn->query($sql);
-
-$namen = array();
-
-while($row = $stmt->fetch(PDO::FETCH_ASSOC))
-    $namen[] = $row["naam"];
-
-?>
