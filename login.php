@@ -43,16 +43,80 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <head>
     <meta charset="UTF-8">
     <title>Inloggen</title>
-    <style>
 
-        body {
+</head>
+<body class="login-page">    <style> .login-page { background: url('img/login-sushi-background.png') no-repeat center center fixed; background-size: cover; }</style>
+    <div class="login-box">
+
+        <style>
+            .ck-login-logo {
+                display: flex;
+                align-items: center;
+                gap: 240px;
+                margin-bottom: 20px;
+            }
+            
+            .ck-login-logo img {
+                width: 75px;
+                height: 75px;
+    
+            }
+            
+            .ck-login-logo h4 {
+                color: #333;
+            }
+        </style>
+
+        <div class="ck-login-logo">
+            <img src="img/sushikushi.png" alt="logo">
+            <h4>Inloggen</h4>
+        </div>
+        
+        <?php if ($error): ?>
+            <div class="error">error <?php echo htmlspecialchars($error); ?></div>
+        <?php endif; ?>
+        
+        <form method="POST">
+            <div class="form-group">
+                <label for="username">Gebruikersnaam:</label>
+                <input 
+                    type="text" 
+                    id="username" 
+                    name="username" 
+                    required
+                >
+            </div>
+            
+            <div class="form-group">
+                <label for="password">Wachtwoord:</label>
+                <input 
+                    type="password" 
+                    id="password" 
+                    name="password" 
+                    required
+                >
+            </div>
+            
+            <button type="submit">Inloggen</button>
+        </form>
+        
+        <p style="text-align: center; margin-top: 15px; font-size: 12px;">
+            <strong>SushiKushi®</strong> 
+        </p>
+    </div>
+</body>
+</html>
+
+<style>
+
+    body {
             font-family: Arial, sans-serif;
             background: #f5f5f5;
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            margin: 0;
+           
         }
         
         .login-box {
@@ -117,72 +181,4 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             margin-bottom: 15px;
         }
 
-    </style>
-</head>
-<body class="login-page">
-    <style>
-        .login-page {
-            background: url('img/login-sushi-background.png') no-repeat center center fixed;
-            background-size: cover;
-        }
-    </style>
-    <div class="login-box">
-
-        <style>
-            .ck-login-logo {
-                display: flex;
-                align-items: center;
-                gap: 240px;
-                margin-bottom: 20px;
-            }
-            
-            .ck-login-logo img {
-                width: 75px;
-                height: 75px;
-    
-            }
-            
-            .ck-login-logo h4 {
-                color: #333;
-            }
-        </style>
-
-        <div class="ck-login-logo">
-            <img src="img/sushikushi.png" alt="logo">
-            <h4>Inloggen</h4>
-        </div>
-        
-        <?php if ($error): ?>
-            <div class="error">error <?php echo htmlspecialchars($error); ?></div>
-        <?php endif; ?>
-        
-        <form method="POST">
-            <div class="form-group">
-                <label for="username">Gebruikersnaam:</label>
-                <input 
-                    type="text" 
-                    id="username" 
-                    name="username" 
-                    required
-                >
-            </div>
-            
-            <div class="form-group">
-                <label for="password">Wachtwoord:</label>
-                <input 
-                    type="password" 
-                    id="password" 
-                    name="password" 
-                    required
-                >
-            </div>
-            
-            <button type="submit">Inloggen</button>
-        </form>
-        
-        <p style="text-align: center; margin-top: 15px; font-size: 12px;">
-            <strong>SushiKushi®</strong> 
-        </p>
-    </div>
-</body>
-</html>
+</style>

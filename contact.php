@@ -42,6 +42,98 @@
 </header>
 
 <main>
+    <section> 
+        <div class="contact-border padding-section">
+            <form id="contactForm">
+                <div class="form-group">
+                    <input type="text" id="name" name="name" placeholder="Name" required>
+                </div>
+
+                <div class="form-group">
+                    <textarea id="message" name="message" placeholder="Message" required></textarea>
+                </div>
+
+                <button type="submit" class="form-button">
+                    Send
+                </button>
+            </form>
+        </div>
+    </section>
+
+     <!-- style css voor form in contactpage -->
+    <style>
+
+.contact-border {
+    display: flex;
+    justify-self: center;
+    border: 3px solid #a82828;
+    padding: 40px 20px;
+    border-radius: 8px;
+    width: 600px;
+}
+ 
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+ 
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+ 
+input[type="text"],
+textarea {
+    background: #1a0d0f;
+    border: 1px solid #8b1a1a;
+    color: #f5e6d3;
+    padding: 10px;
+    font-size: 14px;
+    border-radius: 4px;
+    font-family: Arial, sans-serif;
+}
+ 
+input[type="text"]:focus,
+textarea:focus {
+    outline: none;
+    border-color: #d4af37;
+    background: #2a1215;
+}
+ 
+textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+ 
+.form-button {
+    background: #a82828;
+    color: #f5e6d3;
+    border: 1px solid #d4af37;
+    padding: 10px;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+ 
+.form-button:hover {
+    background: #8b1a1a;
+    box-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
+}
+
+ /* main alleen voor contact page */
+main {
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+    width: 100%;
+    margin-top: 40px;
+}
+
+</style>
 
 
 </main>
