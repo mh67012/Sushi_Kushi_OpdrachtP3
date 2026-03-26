@@ -12,7 +12,6 @@ function checkLogin($username, $password) {
     
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
     
-    // SIMPEL: direct vergelijken, geen hashing
     if ($user && $password === $user['password']) {
         return [
             'success' => true,

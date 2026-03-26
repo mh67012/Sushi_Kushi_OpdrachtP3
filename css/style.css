@@ -330,6 +330,7 @@ main {
 
 .menu-page { margin: 0; }
 .menu-page h1,
+
 .menu-page h2,
 .menu-page h3,
 .menu-page p { margin: 0; }
@@ -369,7 +370,8 @@ main {
 
 .menu-page .menu-titlewrap{
   display: flex;
-  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   gap: 6px;
 }
 
@@ -381,11 +383,14 @@ main {
 }
 
 .menu-page .menu-subtitle{
-  font-size: 14px;
-  color: rgba(255,255,255,0.72);
+  font-size: 12px;
+  color: rgb(179, 154, 118);
+  padding: 15px 4px;
+  margin-top: 30px;
 }
 
-/*alle menu  */
+/*Alle Menu*/
+
 .menu-page .menu-total{
   display: flex;
   align-items: center;
@@ -426,17 +431,12 @@ main {
 }
 
 .menu-page .menu-heading{
-  text-align: center;
   color: white;
   font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(18px, 3.5vw, 28px);
 }
 
-.menu-page .menu-heading-italic{
-  font-style: italic;
-}
 
-/* grid auto fit for beeldscherm*/
+/* grid auto fit*/
 .menu-page .menu-grid{
   display: grid;
   gap: 12px;
@@ -496,7 +496,7 @@ main {
   margin: 40px auto 90px;
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  gap: 33px;
 }
 
 .galerie-page .gallery-title-block {
@@ -526,7 +526,7 @@ main {
   line-height: 1.8;
 }
 
-/* zelfde vibe als footer/header */
+/*-*/
 .galerie-page .gallery-single-wrap {
   display: flex;
   justify-content: center;
@@ -833,8 +833,8 @@ button.btn-delete {
 }
 
 .legal-links a:hover{
-    color: white;
-    text-decoration: underline;
+  color: white;
+  text-decoration: underline;
 }
 
 .copyright{
@@ -847,17 +847,17 @@ button.btn-delete {
 /* Right side footer */
 
 .right-side-footer{
-    display: flex;
-    justify-content: right;
-    padding: 0 20px;
+  display: flex;
+  justify-content: right;
+  padding: 0 20px;
 }
 
 .right-side-footer div a img {
-    width: 2px;
-    height: 2px;
-    min-width: 27px;
-    min-height: 27px;
-    object-fit: contain;
+  width: 2px;
+  height: 2px;
+  min-width: 27px;
+  min-height: 27px;
+  object-fit: contain;
 }
 
 .right-side-footer div a img:hover {

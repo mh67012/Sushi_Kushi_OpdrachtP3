@@ -45,7 +45,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <title>Inloggen</title>
 
 </head>
-<body class="login-page">    <style> .login-page { background: url('img/login-sushi-background.png') no-repeat center center fixed; background-size: cover; }</style>
+<body class="login-page">    
+    <style> .login-page { background: url('img/login-sushi-background.png') no-repeat center center fixed; background-size: cover; }</style>
     <div class="login-box">
 
         <style>
@@ -73,7 +74,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         </div>
         
         <?php if ($error): ?>
-            <div class="error">error <?php echo htmlspecialchars($error); ?></div>
+            <div class="error"><?php echo htmlspecialchars($error); ?></div>
         <?php endif; ?>
         
         <form method="POST">
@@ -101,7 +102,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         </form>
         
         <p style="text-align: center; margin-top: 15px; font-size: 12px;">
-            <strong>SushiKushi®</strong> 
+            SushiKushi®
         </p>
     </div>
 </body>
