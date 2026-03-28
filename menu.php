@@ -1,3 +1,12 @@
+<?php
+require_once 'dbcalls/conn.php';
+
+// Haal menu items op
+$sql = "SELECT * FROM menu_items";
+$stmt = $conn->prepare($sql);
+$stmt->execute();
+$menuItems = $stmt->fetchAll(PDO::FETCH_ASSOC);
+?>
 
 <!DOCTYPE html>
 <html lang="nl">
@@ -66,85 +75,39 @@
         <div class="menu-panel">
           <h2 class="menu-heading">Set Menu’s</h2>
 
-          <div class="menu-grid">
-            <article class="menu-card">
-              <div class="menu-icon" aria-hidden="true">🍱</div>
-              <h3 class="menu-name">3 Handrolls</h3>
-              <p class="menu-price">€24</p>
-            </article>
-
-            <article class="menu-card">
-              <div class="menu-icon" aria-hidden="true">🍱</div>
-              <h3 class="menu-name">4 Handrolls</h3>
-              <p class="menu-price">€30</p>
-            </article>
-
-            <article class="menu-card">
-              <div class="menu-icon" aria-hidden="true">🍱</div>
-              <h3 class="menu-name">5 Handrolls</h3>
-              <p class="menu-price">€36</p>
-            </article>
-          </div>
-        </div>
-      </div>
+    <div class="menu-grid">
+    <?php foreach ($menuItems as $item): ?>
+        <?php if ($item['category'] == 'set_menu'): ?>
+    <article class="menu-card">
+        <div class="menu-icon" aria-hidden="true">🍱</div>
+        <h3 class="menu-name"><?php echo $item['name']; ?></h3>
+        <p class="menu-price">€<?php echo $item['price']; ?></p>
+    </article>
+        <?php endif; ?>
+    <?php endforeach; ?>
+  </div>
     </section>
 
     <section class="menu-section">
-      <div class="menu-inner">
+        <div class="menu-inner">
         <div class="menu-panel">
           <h2 class="menu-heading menu-heading-italic">Losse Handrolls</h2>
+        
+    <div class="menu-grid">
 
-          <div class="menu-grid">
-            <article class="menu-card">
-              <div class="menu-icon" aria-hidden="true">🍣</div>
-              <h3 class="menu-name">Zalm</h3>
-              <p class="menu-price">€8</p>
-            </article>
-
-            <article class="menu-card">
-              <div class="menu-icon" aria-hidden="true">🐟</div>
-              <h3 class="menu-name">Tonijn</h3>
-              <p class="menu-price">€9</p>
-            </article>
-
-            <article class="menu-card">
-              <div class="menu-icon" aria-hidden="true">🐠</div>
-              <h3 class="menu-name">Geelstaart</h3>
-              <p class="menu-price">€9</p>
-            </article>
-
-            <article class="menu-card">
-              <div class="menu-icon" aria-hidden="true">🦈</div>
-              <h3 class="menu-name">Paling</h3>
-              <p class="menu-price">€10</p>
-            </article>
-
-            <article class="menu-card">
-              <div class="menu-icon" aria-hidden="true">🌶️</div>
-              <h3 class="menu-name">Pittige Tonijn</h3>
-              <p class="menu-price">€9</p>
-            </article>
-
-            <article class="menu-card">
-              <div class="menu-icon" aria-hidden="true">🦀</div>
-              <h3 class="menu-name">California</h3>
-              <p class="menu-price">€7</p>
-            </article>
-
-            <article class="menu-card">
-              <div class="menu-icon" aria-hidden="true">🐚</div>
-              <h3 class="menu-name">SchelP</h3>
-              <p class="menu-price">€11</p>
-            </article>
-
-            <article class="menu-card">
-              <div class="menu-icon" aria-hidden="true">🦔</div>
-              <h3 class="menu-name">Zee-egel</h3>
-              <p class="menu-price">€14</p>
-            </article>
-          </div>
+    <?php foreach ($menuItems as $item): ?>
+        <?php if ($item['category'] == 'losse_handrolls'): ?>
+    <article class="menu-card">
+        <div class="menu-icon" aria-hidden="true">
+            <img src="<?php echo $item['image']; ?>" alt="<?php echo $item['name']; ?>" style="width: 80px; height: 80px; object-fit: cover;">
         </div>
-      </div>
+        <h3 class="menu-name"><?php echo $item['name']; ?></h3>
+        <p class="menu-price">€<?php echo $item['price']; ?></p>
+    </article>
+        <?php endif; ?>
+    <?php endforeach; ?>
+</div>
+</div>
     </section>
 
   </main>

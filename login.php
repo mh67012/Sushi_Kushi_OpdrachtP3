@@ -5,33 +5,32 @@ session_start();
 
 $error = '';
 
-// Formulier verzonden?
+// Form verzending checken
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $username = $_POST['username'] ?? '';
     $password = $_POST['password'] ?? '';
     
-    // Zijn beide velden ingevuld?
+    // Cechk velen
     if (empty($username) || empty($password)) {
         $error = 'Vul beide velden in';
     } else {
-        // Laad check_login functie
+        // Laad de check_login
         require_once 'dbcalls/auth/check_login.php';
         
-        // Probeer in te loggen
+        //Inloggen verab voor check
         $result = checkLogin($username, $password);
         
-        // Succesvol?
+        
         if ($result['success']) {
-            // Zet sessie variabelen
+    
             $_SESSION['user_id'] = $result['id'];
             $_SESSION['username'] = $result['username'];
             $_SESSION['email'] = $result['email'];
             
-            // Ga naar index.php
+            // Redirect naar admin.php
             header('Location: admin.php');
             exit;
         } else {
-            // Niet succesvol
             $error = $result['message'];
         }
     }

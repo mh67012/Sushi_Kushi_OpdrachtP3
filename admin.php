@@ -1,3 +1,44 @@
+<?php
+session_start();
+
+if (!isset($_SESSION['user_id'])) {
+    header('Location: login.php');
+    exit;
+}
+
+require_once 'dbcalls/conn.php';
+
+// Haal menu items op
+$sql = "SELECT * FROM menu_items";
+$stmt = $conn->prepare($sql);
+$stmt->execute();
+$menuItems = $stmt->fetchAll(PDO::FETCH_ASSOC);
+//delete
+if (isset($_GET['delete_id'])) {
+    $id = $_GET['delete_id'];
+    $sql = "DELETE FROM menu_items WHERE id = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->execute([$id]);
+    header('Location: admin.php');  // ← ADMIN niet GALERIE!
+    exit;
+}
+// Nieuw item
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $name = $_POST['name'];
+    $description = $_POST['description'];
+    $price = $_POST['price'];
+    $image = $_POST['image'];
+    
+    $sql = "INSERT INTO menu_items (name, description, price, image) VALUES (?, ?, ?, ?)";
+    $stmt = $conn->prepare($sql);
+    $stmt->execute([$name, $description, $price, $image]);
+    
+    header('Location: admin.php');
+    exit;
+}
+?>
+
+<!DOCTYPE html>
 <!DOCTYPE html>
 <html lang="nl">
 <head>
@@ -49,81 +90,24 @@
     <section class="admin-overview">
       <div class="overview-card">
         <span class="overview-label">Gerechten</span>
-        <h3>639</h3>
+        <h3>0</h3>
       </div>
 
       <div class="overview-card">
-        <span class="overview-label">Customers</span>
-        <h3>693</h3>
+        <span class="overview-label">Klanten</span>
+        <h3>0</h3>
       </div>
 
       <div class="overview-card">
-        <span class="overview-label">Recent Orders</span>
-        <h3>693</h3>
+          <span class="overview-label">Recente Bestellingen</span>
+          <h3>0</h3>
       </div>
 
-      <div class="overview-card">
-        <span class="overview-label">Reserveringen</span>
-        <h3>693</h3>
-      </div>
     </section>
 
     <!-- Recente orders-->
-    <section class="card admin-section" id="recent-orders">
-      <div class="section-head">
-        
-        <h2>Recent Orders</h2>
-      </div>
-      <div class="admin-box">
-      <table>
-        <tr>
-          <th>ID</th>
-          <th>Klant</th>
-          <th>Bestelling</th>
-          <th>Status</th>
-          <th>Optie</th>
-        </tr>
 
-        <tr>
-          <td>1</td>
-          <td>David</td>
-          <td>Dragon Roll</td>
-          <td>In behandeling</td>
-          <td>
-            <div class="actions">
-              <button class="btn-update" type="button">Bekijk</button>
-              <button class="btn-delete" type="button">Verwijder</button>
-            </div>
-          </td>
-        </tr>
 
-        <tr>
-          <td>2</td>
-          <td>name</td>
-          <td>Spicy Tuna Roll</td>
-          <td>Afgerond</td>
-          <td>
-            <div class="actions">
-              <button class="btn-update" type="button">Bekijk</button>
-              <button class="btn-delete" type="button">Verwijder</button>
-            </div>
-          </td>
-        </tr>
-
-        <tr>
-          <td>3</td>
-          <td>name</td>
-          <td>Salmon Sashimi</td>
-          <td>Klaar</td>
-          <td>
-            <div class="actions">
-              <button class="btn-update" type="button">Bekijk</button>
-              <button class="btn-delete" type="button">Verwijder</button>
-            </div>
-          </td>
-        </tr>
-      </table>
-      </div>
     </section>
 
     <!-- Klanten -->
@@ -183,73 +167,17 @@
           <th>Optie</th>
         </tr>
 
+        
+        <?php foreach ($menuItems as $item): ?>
         <tr>
-          <td>1</td>
-          <td>Dragon Roll</td>
-          <td>Sushi</td>
+          <td><?php echo $item['id']; ?></td>
+          <td><?php echo $item['name']; ?></td>
+          <td><?php echo $item['description'] ?? '-'; ?></td>
           <td>
-            <div class="actions">
-              <a href="edit_dish.php?id=1" class="btn-update">Aanpassen</a>
-              <a href="delete_dish.php?id=1" class="btn-delete">Verwijderen</a>
-            </div>
+          <a href="?delete_id=<?php echo $item['id']; ?>" class="btn-delete" onclick="return confirm('Zeker?')">Verwijderen</a>
           </td>
-        </tr>
-
-        <tr>
-          <td>2</td>
-          <td>Salmon Sashimi</td>
-          <td>Sashimi</td>
-          <td>
-            <div class="actions">
-              <a href="edit_dish.php?id=2" class="btn-update">Aanpassen</a>
-              <a href="delete_dish.php?id=2" class="btn-delete">Verwijderen</a>
-            </div>
-          </td>
-        </tr>
-      </table>
-      </div>
-    </section>
-
-    <!-- RESERVATIONS -->
-    <section class="card admin-section" id="reservations">
-      <div class="section-head">
-        <h2>Reservations</h2>
-      </div>
-    <div class="admin-box">
-      <table>
-        <tr>
-          <th>ID</th>
-          <th>Naam</th>
-          <th>Gasten</th>
-          <th>Tijd</th>
-          <th>Optie</th>
-        </tr>
-
-        <tr>
-          <td>1</td>
-          <td>Van Dijk</td>
-          <td>4</td>
-          <td>19:00</td>
-          <td>
-            <div class="actions">
-              <button class="btn-update" type="button">Update</button>
-              <button class="btn-delete" type="button">Delete</button>
-            </div>
-          </td>
-        </tr>
-
-        <tr>
-          <td>2</td>
-          <td>Bakker</td>
-          <td>2</td>
-          <td>20:30</td>
-          <td>
-            <div class="actions">
-              <button class="btn-update" type="button">Update</button>
-              <button class="btn-delete" type="button">Delete</button>
-            </div>
-          </td>
-        </tr>
+          </tr>
+          <?php endforeach; ?>
       </table>
       </div>
     </section>
@@ -296,12 +224,13 @@
     </section>
 
   </div>
+
+
 </main>
  <!-- FOOTER -->
 
  <footer>
 
-    
     <div class="border-footer">
     <div class="left-side-footer">
         <p class="copyright">@Copyright 2026 <br> <span class="text-copyright"> All rights reserved</span> </p>
