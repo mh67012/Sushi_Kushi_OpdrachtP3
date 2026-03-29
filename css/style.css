@@ -29,7 +29,6 @@ body {
   
   font-family: Arial, sans-serif;
   font-weight: 400;
-
 }
 
 
@@ -76,17 +75,17 @@ header{
   height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;     /* sushi top, icons bottom */
+  justify-content: space-between;    
   align-items: flex-end;
 }
 
 .sushi-logo-right{
-  width: 200px;                      /* fits inside header */
+  width: 200px;                      
   object-fit: contain;
 }
 
 .right-icons{
-  width: 200px;                       /* same as bamboo width */
+  width: 200px;                      
   display: flex;
   justify-content: center;
   gap: 20px;
@@ -112,7 +111,7 @@ main {
   flex-direction: column;
 }
 
-/* SECTION met eigen achtergrond */
+
 .zoom-section {
   padding: 70px 0px;
   min-height: 50vh;
@@ -741,7 +740,6 @@ main {
 
 .inline-form {
   display: inline;
-  margin: 0;
 }
 
 /* BUTTONS + LINKS GELIJK */

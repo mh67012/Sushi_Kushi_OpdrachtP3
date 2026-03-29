@@ -50,6 +50,9 @@
                 </div>
 
                 <div class="form-group">
+                    <input type="text" id="email" name="email" placeholder="Email" required>
+
+                <div class="form-group">
                     <textarea id="message" name="message" placeholder="Message" required></textarea>
                 </div>
 
@@ -80,6 +83,7 @@ form {
 }
  
 .form-group {
+    gap: 20px;
     display: flex;
     flex-direction: column;
 }
@@ -181,7 +185,7 @@ main {
         </div>
 
         <div>
-            <a href="mailto:1212789@student.roc-nijmegen.nl" class="mail-href">
+            <a href="" class="mail-href">
                 <img src="img/mail.svg" alt="mail">
             </a>
         </div>

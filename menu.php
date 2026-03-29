@@ -1,12 +1,12 @@
 <?php
 require_once 'dbcalls/conn.php';
 
-// Haal menu items op
-$sql = "SELECT * FROM menu_items";
-$stmt = $conn->prepare($sql);
-$stmt->execute();
-$menuItems = $stmt->fetchAll(PDO::FETCH_ASSOC);
-?>
+// Haal menu items op uit de database
+  $sql = "SELECT * FROM menu_items";
+  $stmt = $conn->prepare($sql);
+  $stmt->execute();
+  $menuItems = $stmt->fetchAll(PDO::FETCH_ASSOC);
+  ?>
 
 <!DOCTYPE html>
 <html lang="nl">
@@ -75,17 +75,18 @@ $menuItems = $stmt->fetchAll(PDO::FETCH_ASSOC);
         <div class="menu-panel">
           <h2 class="menu-heading">Set Menu’s</h2>
 
-    <div class="menu-grid">
-    <?php foreach ($menuItems as $item): ?>
-        <?php if ($item['category'] == 'set_menu'): ?>
-    <article class="menu-card">
-        <div class="menu-icon" aria-hidden="true">🍱</div>
-        <h3 class="menu-name"><?php echo $item['name']; ?></h3>
-        <p class="menu-price">€<?php echo $item['price']; ?></p>
-    </article>
-        <?php endif; ?>
-    <?php endforeach; ?>
-  </div>
+      <div class="menu-grid">
+        <?php foreach ($menuItems as $item): ?>
+          <?php if ($item['category'] == 'set_menu'): ?>
+            <article class="menu-card">
+            <div class="menu-icon" aria-hidden="true">🍱</div>
+            <h3 class="menu-name"><?php echo $item['name']; ?></h3>
+            <p class="menu-price">€<?php echo $item['price']; ?></p>
+            </article>
+          <?php endif; ?>
+        <?php endforeach; ?>
+       </div>
+
     </section>
 
     <section class="menu-section">
@@ -95,24 +96,28 @@ $menuItems = $stmt->fetchAll(PDO::FETCH_ASSOC);
         
     <div class="menu-grid">
 
-    <?php foreach ($menuItems as $item): ?>
+      <?php foreach ($menuItems as $item): ?>
         <?php if ($item['category'] == 'losse_handrolls'): ?>
-    <article class="menu-card">
-        <div class="menu-icon" aria-hidden="true">
+        <article class="menu-card">
+         <div class="menu-icon" aria-hidden="true">
             <img src="<?php echo $item['image']; ?>" alt="<?php echo $item['name']; ?>" style="width: 80px; height: 80px; object-fit: cover;">
-        </div>
-        <h3 class="menu-name"><?php echo $item['name']; ?></h3>
-        <p class="menu-price">€<?php echo $item['price']; ?></p>
-    </article>
-        <?php endif; ?>
-    <?php endforeach; ?>
-</div>
-</div>
+         </div>
+            <h3 class="menu-name"><?php echo $item['name']; ?></h3>
+             <p class="menu-price">€<?php echo $item['price']; ?></p>
+        </article>
+          <?php endif; ?>
+          <?php endforeach; ?>
+       </div>
+      </div>
+
     </section>
 
   </main>
 
+ <!-- FOOTER -->
+
   <footer>
+
     <div class="border-footer">
       <div class="left-side-footer">
         <p class="copyright">@Copyright 2026 <br>
@@ -152,12 +157,13 @@ $menuItems = $stmt->fetchAll(PDO::FETCH_ASSOC);
         </div>
 
         <div>
-          <a href="mailto:1212789@student.roc-nijmegen.nl" class="mail-href">
+          <a href="" class="mail-href">
             <img src="img/mail.svg" alt="Mail">
           </a>
         </div>
       </div>
     </div>
+
   </footer>
 
 </body>

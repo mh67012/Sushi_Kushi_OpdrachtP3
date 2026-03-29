@@ -12,7 +12,7 @@ function checkLogin($username, $password) {
     
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
     
-    if ($user && $password === $user['password']) {
+    if ($user && $password == $user['password']) {
         return [
             'success' => true,
             'id' => $user['id'],

@@ -8,7 +8,7 @@ if (!isset($_SESSION['user_id'])) {
 
 require_once 'dbcalls/conn.php';
 
-// Haal menu items op
+
 $sql = "SELECT * FROM menu_items";
 $stmt = $conn->prepare($sql);
 $stmt->execute();
@@ -19,20 +19,22 @@ if (isset($_GET['delete_id'])) {
     $sql = "DELETE FROM menu_items WHERE id = ?";
     $stmt = $conn->prepare($sql);
     $stmt->execute([$id]);
-    header('Location: admin.php');  // ← ADMIN niet GALERIE!
+    header('Location: admin.php');
     exit;
 }
+
 // Nieuw item
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $name = $_POST['name'];
     $description = $_POST['description'];
     $price = $_POST['price'];
     $image = $_POST['image'];
-    
-    $sql = "INSERT INTO menu_items (name, description, price, image) VALUES (?, ?, ?, ?)";
+    $category = $_POST['category'];
+
+    $sql = "INSERT INTO menu_items (name, description, price, image, category) VALUES (?, ?, ?, ?, ?)";
     $stmt = $conn->prepare($sql);
-    $stmt->execute([$name, $description, $price, $image]);
-    
+    $stmt->execute([$name, $description, $price, $image, $category]);
+
     header('Location: admin.php');
     exit;
 }
@@ -159,26 +161,26 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       </div>
 
       <div class="admin-box">
-      <table>
-        <tr>
-          <th>ID</th>
-          <th>Gerecht</th>
-          <th>Categorie</th>
-          <th>Optie</th>
-        </tr>
+          <table>
+            <tr>
+              <th>ID</th>
+              <th>Gerecht</th>
+              <th>Categorie</th>
+              <th>Optie</th>
+            </tr>
 
         
-        <?php foreach ($menuItems as $item): ?>
+              <?php foreach ($menuItems as $item): ?>
         <tr>
           <td><?php echo $item['id']; ?></td>
           <td><?php echo $item['name']; ?></td>
-          <td><?php echo $item['description'] ?? '-'; ?></td>
+          <td><?php echo $item['description'] ?? 'Niet beschikbaar'; ?></td>
           <td>
           <a href="?delete_id=<?php echo $item['id']; ?>" class="btn-delete" onclick="return confirm('Zeker?')">Verwijderen</a>
           </td>
           </tr>
           <?php endforeach; ?>
-      </table>
+         </table>
       </div>
     </section>
 
@@ -208,22 +210,22 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
           </td>
         </tr>
 
-        <tr>
-          <td>2</td>
-          <td>Mo</td>
-          <td>Allergieën menu</td>
-          <td>
+          <tr>
+            <td>2</td>
+            <td>Mo</td>
+            <td>Allergieën menu</td>
+            <td>
             <div class="actions">
               <button class="btn-update" type="button">Lezen</button>
               <button class="btn-delete" type="button">Verwijder</button>
             </div>
-          </td>
-        </tr>
-      </table>
+            </td>
+          </tr>
+        </table>
       </div>
-    </section>
+  </section>
 
-  </div>
+</div>
 
 
 </main>
@@ -231,51 +233,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
  <footer>
 
-    <div class="border-footer">
-    <div class="left-side-footer">
-        <p class="copyright">@Copyright 2026 <br> <span class="text-copyright"> All rights reserved</span> </p>
-
-        <div class="legal-links">
-            <a href="terms.html">Terms & Conditions</a>
-            <span class="separator">|</span>
-            <a href="privacy.html">Privacy Policy</a>
-        </div>
-    </div>
-
-    <div class="right-side-footer">
-
-        <div>
-            <a href="https://" target="_blank">
-                <img src="img/github.svg" alt="Insta">
-            </a>
-        </div>
-
-        <div>
-            <a href="https://   " target="_blank">
-                <img src="img/x.svg" alt="x">
-            </a>
-        </div>
-
-        <div>
-            <a href="https://youtube.com" target="_blank">
-                <img src="img/youtube.svg" alt="yt">
-            </a>
-        </div>
-
-        <div>
-            <a href="https://instagram.com" target="_blank">
-                <img src="img/instagram.svg" alt="insta">
-            </a>
-        </div>
-
-        <div>
-            <a href="mailto:1212789@student.roc-nijmegen.nl" class="mail-href">
-                <img src="img/mail.svg" alt="mail">
-            </a>
-        </div>
-    </div>
-</div>
-
+   
 
 </footer> 
 

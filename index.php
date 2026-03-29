@@ -174,7 +174,7 @@
         </div>
 
         <div>
-            <a href="mailto:1212789@student.roc-nijmegen.nl" class="mail-href">
+            <a href="" class="mail-href">
                 <img src="img/mail.svg" alt="mail">
             </a>
         </div>
