@@ -30,6 +30,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <meta charset="UTF-8">
     <title>Nieuw Gerecht</title>
     <link rel="stylesheet" href="css/style.css">
+
+    <!-- Style voor het toevoegen van een nieuw gerecht -->
     <style>
         body {
             background: #1a1a1a;
@@ -97,12 +99,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             color: white;
             width: 48%;
             margin-top: 10px;
+            margin-left: auto;
         }
         
         a:hover {
             background: #666;
         }
     </style>
+
 </head>
 <body>
     <div class="container">
@@ -123,9 +127,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
             <label>Categorie:</label>
                 <select name="category" required>
-                    <option value="">Kies een categorie...</option>
-                    <option value="set_menu">Set Menu's (€24-€36)</option>
-                    <option value="losse_handrolls">Losse Handrolls (€7-€14)</option>
+                    <option value="">Kies een categorie</option>
+                    <option value="set_menu">Set Menu's</option>
+                    <option value="losse_handrolls">Losse Handrolls</option>
                 </select>
             
             <button type="submit">Toevoegen</button>

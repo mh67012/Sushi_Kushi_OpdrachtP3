@@ -41,7 +41,7 @@
 
 </header>
 
-<main>
+<main class="contact-main">
     <section> 
         <div class="contact-border padding-section">
             <form id="contactForm">
@@ -129,15 +129,14 @@ textarea {
 
  /* main alleen voor contact page */
 main {
-    min-height: 80vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 40px 20px;
+    padding: 30px 20px;
     width: 100%;
-    margin-top: 40px;
 }
 
+/* contact main */
 </style>
 
 

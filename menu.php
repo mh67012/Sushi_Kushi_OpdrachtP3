@@ -79,9 +79,10 @@ require_once 'dbcalls/conn.php';
         <?php foreach ($menuItems as $item): ?>
           <?php if ($item['category'] == 'set_menu'): ?>
             <article class="menu-card">
-            <div class="menu-icon" aria-hidden="true">🍱</div>
+            <div class="menu-icon" aria-hidden="true"></div>
+            <img src="<?php echo $item['image']; ?>" alt="<?php echo $item['name']; ?>" style="width: 80px; height: 80px; object-fit: cover;">
             <h3 class="menu-name"><?php echo $item['name']; ?></h3>
-            <p class="menu-price">€<?php echo $item['price']; ?></p>
+            <p class="menu-price">€<?php echo $item['price'];?></p>
             </article>
           <?php endif; ?>
         <?php endforeach; ?>

@@ -1,8 +1,8 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    /* outline: darkcyan 2px solid; */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /* outline: darkcyan 2px solid; */
 }
   
 /*CLASSES FOR WEBSITE*/
@@ -13,7 +13,7 @@
 /*html,body css*/
 
 html, body {
-    min-height: 100%;
+  min-height: 100%;
 }
 
 body {
@@ -103,7 +103,9 @@ header{
   height: 30px;
 }
 
+
 /* main sections */
+
 
 main {
   flex: 1;
@@ -111,11 +113,10 @@ main {
   flex-direction: column;
 }
 
-
 .zoom-section {
   padding: 70px 0px;
   min-height: 50vh;
-  background-image: url("../img/suhsibaord.jpg"); /* <-- verander dit */
+  background-image: url("../img/suhsibaord.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -125,7 +126,6 @@ main {
   align-items: center;
   border-radius: 20px;
 }
-
 
 .zoom-card {
   background: rgba(0, 0, 0, 0.55);
@@ -167,7 +167,6 @@ main {
   color: #ffffff;
   font-family: Arial, sans-serif;
 }
-
 
 .content-section .container{
   width: min(1000px, calc(100% - 32px));
@@ -268,7 +267,6 @@ main {
   flex-wrap: wrap;
 }
 
-
 .btn.btn-outline{
   background: transparent;
   border: 2px solid white;
@@ -279,8 +277,8 @@ main {
 }
 
 /* =========================
-  
-   ========================= */
+  HOME PAGE ONLY
+========================= */
 
 
 
@@ -296,8 +294,7 @@ main {
 }
 
 .home-page .content-section .container{
-  width: min(1000px, 100%);
-            
+  width: min(1000px, 100%);       
 }
 
 
@@ -619,6 +616,9 @@ main {
   }
 }
 
+/* CONTACT PAGE */
+.contact-page {
+}
 
 /* ADMIN PAGE */
 .admin-page {
@@ -667,6 +667,7 @@ main {
 }
 
 /* SECTION */
+
 .admin-section {
   background: rgba(2, 7, 25, 0.94);
   border: 1px solid rgba(255,255,255,0.08);
@@ -816,23 +817,21 @@ button.btn-delete {
 /* Footer */
 
 .left-side-footer{
-    gap: 3px;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    flex-direction: column;
-
+  gap: 3px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
 }
 
 .legal-links{
-    font-size: 10px;
-    color: darkgray;
-    padding: 2px;
+  font-size: 10px;
+  color: darkgray;
+  padding: 2px;
 }
 
 .legal-links a{
-    text-decoration: none;
-    transition: color 0.3s ease;
+  text-decoration: none;
+  transition: color 0.3s ease;
 }
 
 .legal-links a:hover{
@@ -864,20 +863,20 @@ button.btn-delete {
 }
 
 .right-side-footer div a img:hover {
-    transform: scale(1.10);
+  transform: scale(1.10);
 }
 
 /* Border footer */
 
 .border-footer{
-    display: flex;
-    align-items: flex-end;
-    justify-content: space-between;
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
-    backdrop-filter: blur(2px);
-    border: 1px solid rgb(103, 36, 36);
-    background:rgba(126, 25, 25, 0.3);
-    height: 113px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  backdrop-filter: blur(2px);
+  border: 1px solid rgb(103, 36, 36);
+  background:rgba(126, 25, 25, 0.3);
+  height: 113px;
 }
 

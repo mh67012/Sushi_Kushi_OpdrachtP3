@@ -4,7 +4,9 @@ $config = require __DIR__ . '/../config/db.php';
 
 try {
     $conn = new PDO(
-        "mysql:host={$config['host']};dbname={$config['dbname']};charset=utf8mb4",
+        "mysql:host={$config['host']};
+        dbname={$config['dbname']};
+        charset=utf8mb4",
         $config['user'],
         $config['pass']
     );

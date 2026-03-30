@@ -69,7 +69,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         <div class="ck-login-logo">
             <img src="img/sushikushi.png" alt="logo">
-            <h4>Inloggen</h4>
+            <h4> Beheer Menu </h4> 
+            
         </div>
         
         <?php if ($error): ?>
@@ -129,6 +130,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         }
         
         h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        h4{
             text-align: center;
             color: #333;
         }

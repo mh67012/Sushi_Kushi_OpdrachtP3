@@ -6,8 +6,9 @@ if (!isset($_SESSION['user_id'])) {
     exit;
 }
 
-require_once 'dbcalls/conn.php';
-
+require __DIR__ . '/dbcalls/conn.php';
+require_once __DIR__ . '/dbcalls/menu/count.php';
+$totalMenuItems = countMenuItems();
 
 $sql = "SELECT * FROM menu_items";
 $stmt = $conn->prepare($sql);
@@ -15,32 +16,33 @@ $stmt->execute();
 $menuItems = $stmt->fetchAll(PDO::FETCH_ASSOC);
 //delete
 if (isset($_GET['delete_id'])) {
-    $id = $_GET['delete_id'];
-    $sql = "DELETE FROM menu_items WHERE id = ?";
-    $stmt = $conn->prepare($sql);
-    $stmt->execute([$id]);
-    header('Location: admin.php');
-    exit;
+  $id = $_GET['delete_id'];
+  $sql = "DELETE FROM menu_items WHERE id = ?";
+  $stmt = $conn->prepare($sql);
+  $stmt->execute([$id]);
+  header('Location: admin.php');
+  exit;
 }
 
 // Nieuw item
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $name = $_POST['name'];
-    $description = $_POST['description'];
-    $price = $_POST['price'];
-    $image = $_POST['image'];
-    $category = $_POST['category'];
+  $name = $_POST['name'];
+  $description = $_POST['description'];
+  $price = $_POST['price'];
+  $image = $_POST['image'];
+  $category = $_POST['category'];
 
-    $sql = "INSERT INTO menu_items (name, description, price, image, category) VALUES (?, ?, ?, ?, ?)";
-    $stmt = $conn->prepare($sql);
-    $stmt->execute([$name, $description, $price, $image, $category]);
+  $sql = "INSERT INTO menu_items (name, description, price, image, category) VALUES (?, ?, ?, ?, ?)";
+  $stmt = $conn->prepare($sql);
+  $stmt->execute([$name, $description, $price, $image, $category]);
 
-    header('Location: admin.php');
-    exit;
+  header('Location: admin.php');
+  exit;
 }
+
 ?>
 
-<!DOCTYPE html>
+
 <!DOCTYPE html>
 <html lang="nl">
 <head>
@@ -92,7 +94,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <section class="admin-overview">
       <div class="overview-card">
         <span class="overview-label">Gerechten</span>
-        <h3>0</h3>
+        <h3><?php echo $totalMenuItems; ?></h3>
       </div>
 
       <div class="overview-card">
@@ -167,18 +169,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
               <th>Gerecht</th>
               <th>Categorie</th>
               <th>Optie</th>
+              
             </tr>
-
         
               <?php foreach ($menuItems as $item): ?>
-        <tr>
-          <td><?php echo $item['id']; ?></td>
-          <td><?php echo $item['name']; ?></td>
-          <td><?php echo $item['description'] ?? 'Niet beschikbaar'; ?></td>
-          <td>
-          <a href="?delete_id=<?php echo $item['id']; ?>" class="btn-delete" onclick="return confirm('Zeker?')">Verwijderen</a>
-          </td>
-          </tr>
+             <tr>
+                <td><?php echo $item['id']; ?></td>
+                <td><?php echo $item['name']; ?></td>
+                <td><?php echo $item['category'] ?? 'Niet beschikbaar'; ?></td>
+                <td>
+              <a href="?delete_id=<?php echo $item['id']; ?>" class="btn-delete" onclick="return confirm('Zeker?')">Verwijderen</a>
+                </td>
+           </tr>
           <?php endforeach; ?>
          </table>
       </div>
@@ -229,9 +231,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 
 </main>
- <!-- FOOTER -->
 
- <footer>
+<!-- FOOTER -->
+
+<footer>
 
    
 

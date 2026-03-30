@@ -7,6 +7,7 @@ function countMenuItems() {
     $sql = "SELECT COUNT(*) FROM menu_items";
     $stmt = $conn->prepare($sql);
     $stmt->execute();
-    return $stmt->fetchColumn();
+    $totalMenuItems = $stmt->fetchColumn();
+    return $totalMenuItems;
 }
 ?>
