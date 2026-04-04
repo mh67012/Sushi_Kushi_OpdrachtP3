@@ -82,6 +82,7 @@ require_once 'dbcalls/conn.php';
             <div class="menu-icon" aria-hidden="true"></div>
             <img src="<?php echo $item['image']; ?>" alt="<?php echo $item['name']; ?>" style="width: 80px; height: 80px; object-fit: cover;">
             <h3 class="menu-name"><?php echo $item['name']; ?></h3>
+            <p class="menu-description"><?php echo $item['description']; ?></p>
             <p class="menu-price">€<?php echo $item['price'];?></p>
             </article>
           <?php endif; ?>
@@ -104,6 +105,7 @@ require_once 'dbcalls/conn.php';
             <img src="<?php echo $item['image']; ?>" alt="<?php echo $item['name']; ?>" style="width: 80px; height: 80px; object-fit: cover;">
          </div>
             <h3 class="menu-name"><?php echo $item['name']; ?></h3>
+            <p class="menu-description"><?php echo $item['description']; ?></p>
              <p class="menu-price">€<?php echo $item['price']; ?></p>
         </article>
           <?php endif; ?>
@@ -133,35 +135,30 @@ require_once 'dbcalls/conn.php';
       </div>
 
       <div class="right-side-footer">
-        <div>
-          <a href="https://" target="_blank">
-            <img src="img/github.svg" alt="GitHub">
-          </a>
+         <div>
+            <a href="https://" target="_blank">
+                <img src="img/_TikTok.svg" alt="Tiktok">
+            </a>
         </div>
 
         <div>
-          <a href="https://" target="_blank">
-            <img src="img/x.svg" alt="X">
-          </a>
+            <a href="https://   " target="_blank">
+                <img src="img/_WhatsApp.svg" alt="WhatsApp">
+            </a>
         </div>
 
         <div>
-          <a href="https://youtube.com" target="_blank">
-            <img src="img/youtube.svg" alt="YouTube">
-          </a>
+            <a href="https://" target="_blank">
+                <img src="img/_Facebook.svg" alt="Facebook">
+            </a>
         </div>
 
         <div>
-          <a href="https://instagram.com" target="_blank">
-            <img src="img/instagram.svg" alt="Instagram">
-          </a>
+            <a href="https://" target="_blank">
+                <img src="img/_Instagram.svg" alt="Instagram">
+            </a>
         </div>
-
-        <div>
-          <a href="" class="mail-href">
-            <img src="img/mail.svg" alt="Mail">
-          </a>
-        </div>
+      
       </div>
     </div>
 

@@ -1,3 +1,23 @@
+<?php
+require 'dbcalls/conn.php';
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $name = $_POST['name'];
+    $email = $_POST['email'];
+    $bericht = $_POST['message'];
+
+    // Database verbinding maken
+
+    $sql = "INSERT INTO contact_berichten (name, email, bericht) VALUES (?, ?, ?)";
+    $stmt = $conn->prepare($sql);
+    $stmt->execute([$name, $email, $bericht]);
+
+    // Redirect of geef een succesbericht weer
+    header('Location: contact.php?success=1');
+    exit();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="nl">
 <head>
@@ -42,9 +62,12 @@
 </header>
 
 <main class="contact-main">
-    <section> 
+    <section>
+
         <div class="contact-border padding-section">
-            <form id="contactForm">
+        
+    
+            <form id="contactForm" method="POST" action="contact.php">
                 <div class="form-group">
                     <input type="text" id="name" name="name" placeholder="Name" required>
                 </div>
@@ -61,6 +84,7 @@
                 </button>
             </form>
         </div>
+            
     </section>
 
      <!-- style css voor form in contactpage -->
@@ -161,31 +185,25 @@ main {
 
         <div>
             <a href="https://" target="_blank">
-                <img src="img/github.svg" alt="Insta">
+                <img src="img/_TikTok.svg" alt="Tiktok">
             </a>
         </div>
 
         <div>
-            <a href="https://   " target="_blank">
-                <img src="img/x.svg" alt="x">
+            <a href="https://" target="_blank">
+                <img src="img/_WhatsApp.svg" alt="WhatsApp">
             </a>
         </div>
 
         <div>
-            <a href="https://youtube.com" target="_blank">
-                <img src="img/youtube.svg" alt="yt">
+            <a href="https://" target="_blank">
+                <img src="img/_Facebook.svg" alt="Facebook">
             </a>
         </div>
 
         <div>
-            <a href="https://instagram.com" target="_blank">
-                <img src="img/instagram.svg" alt="insta">
-            </a>
-        </div>
-
-        <div>
-            <a href="" class="mail-href">
-                <img src="img/mail.svg" alt="mail">
+            <a href="https://" target="_blank">
+                <img src="img/_Instagram.svg" alt="Instagram">
             </a>
         </div>
     </div>

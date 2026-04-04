@@ -6,18 +6,37 @@ if (!isset($_SESSION['user_id'])) {
     exit;
 }
 
+
+// Database verbinding mappen
 require __DIR__ . '/dbcalls/conn.php';
 require_once __DIR__ . '/dbcalls/menu/count.php';
+require_once __DIR__ . '/dbcalls/berichten/count.php';
+require_once __DIR__ . '/dbcalls/berichten/get_berichten.php';
+
 $totalMenuItems = countMenuItems();
+$totalBerichtItems = countBerichtItems();
 
 $sql = "SELECT * FROM menu_items";
 $stmt = $conn->prepare($sql);
 $stmt->execute();
 $menuItems = $stmt->fetchAll(PDO::FETCH_ASSOC);
-//delete
+
+//delete menu items
+
 if (isset($_GET['delete_id'])) {
   $id = $_GET['delete_id'];
   $sql = "DELETE FROM menu_items WHERE id = ?";
+  $stmt = $conn->prepare($sql);
+  $stmt->execute([$id]);
+  header('Location: admin.php');
+  exit;
+}
+
+//delete berichten
+
+if (isset($_GET['delete_bericht'])) {
+  $id = $_GET['delete_bericht'];
+  $sql = "DELETE FROM contact_berichten WHERE id = ?";
   $stmt = $conn->prepare($sql);
   $stmt->execute([$id]);
   header('Location: admin.php');
@@ -107,6 +126,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
           <h3>0</h3>
       </div>
 
+      <div class="overview-card">
+          <span class="overview-label">Contact Berichten</span>
+          <h3><?php echo $totalBerichtItems; ?></h3>
+      </div>
+
     </section>
 
     <!-- Recente orders-->
@@ -178,7 +202,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 <td><?php echo $item['name']; ?></td>
                 <td><?php echo $item['category'] ?? 'Niet beschikbaar'; ?></td>
                 <td>
-              <a href="?delete_id=<?php echo $item['id']; ?>" class="btn-delete" onclick="return confirm('Zeker?')">Verwijderen</a>
+              <a href="?delete_id=<?php echo $item['id']; ?>" class="btn-delete" onclick="return confirm('Item verwijderen?')">Verwijder</a>
                 </td>
            </tr>
           <?php endforeach; ?>
@@ -196,33 +220,25 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <tr>
           <th>ID</th>
           <th>Naam</th>
-          <th>Onderwerp</th>
+          <th>Email</th>
+          <th>berichten</th>
           <th>Optie</th>
         </tr>
-
+        
+        <?php foreach ($berichten as $bericht): ?>
         <tr>
-          <td>1</td>
-          <td>Emma</td>
-          <td>Vraag over reservering</td>
+          <td><?= $bericht['id'] ?></td>
+          <td><?= htmlspecialchars($bericht['name']) ?></td>
+          <td><?= htmlspecialchars($bericht['email']) ?></td>
+          <td><?= htmlspecialchars($bericht['bericht']) ?></td>
           <td>
-            <div class="actions">
-              <button class="btn-update" type="button">Lezen</button>
-              <button class="btn-delete" type="button">Verwijder</button>
-            </div>
+              <a href="?delete_bericht=<?= $bericht['id'] ?>" class="btn-delete" 
+                  onclick="return confirm('Bericht verwijderen?')">Verwijder</a>
           </td>
         </tr>
 
-          <tr>
-            <td>2</td>
-            <td>Mo</td>
-            <td>Allergieën menu</td>
-            <td>
-            <div class="actions">
-              <button class="btn-update" type="button">Lezen</button>
-              <button class="btn-delete" type="button">Verwijder</button>
-            </div>
-            </td>
-          </tr>
+        <?php endforeach; ?>
+
         </table>
       </div>
   </section>

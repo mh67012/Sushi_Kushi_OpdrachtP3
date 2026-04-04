@@ -87,33 +87,29 @@
 
         <div>
             <a href="https://" target="_blank">
-                <img src="img/github.svg" alt="Insta">
+                <img src="img/_TikTok.svg" alt="Tiktok">
             </a>
         </div>
-
+        
         <div>
             <a href="https://   " target="_blank">
-                <img src="img/x.svg" alt="x">
+                <img src="img/_WhatsApp.svg" alt="WhatsApp">
             </a>
         </div>
 
         <div>
-            <a href="https://youtube.com" target="_blank">
-                <img src="img/youtube.svg" alt="yt">
+            <a href="https://" target="_blank">
+                <img src="img/_Facebook.svg" alt="Facebook">
             </a>
         </div>
 
-        <div>
-            <a href="https://instagram.com" target="_blank">
-                <img src="img/instagram.svg" alt="insta">
+       <div>
+            <a href="https://" target="_blank">
+                <img src="img/_Instagram.svg" alt="Instagram">
             </a>
         </div>
 
-        <div>
-            <a href="" class="mail-href">
-                <img src="img/mail.svg" alt="mail">
-            </a>
-        </div>
+      
     </div>
 </div>
 

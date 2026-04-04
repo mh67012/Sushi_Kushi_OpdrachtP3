@@ -372,7 +372,6 @@ main {
 }
 
 .menu-page .menu-title{
-  font-family: Georgia, "Times New Roman", serif;
   font-size: clamp(34px, 6vw, 58px);
   color: white;
   letter-spacing: 0.5px;
@@ -428,7 +427,6 @@ main {
 
 .menu-page .menu-heading{
   color: white;
-  font-family: Georgia, "Times New Roman", serif;
 }
 
 
@@ -464,7 +462,6 @@ main {
 
 .menu-page .menu-price{
   color: rgb(255, 46, 115);
-  font-family: Georgia, "Times New Roman", serif;
   font-size: 18px;
 }
 
@@ -686,7 +683,6 @@ main {
 .section-head h2 {
   color: white;
   font-size: 32px;
-  font-family: Georgia, "Times New Roman", serif;
 }
 
 /* BINNENSTE BOX */
@@ -846,12 +842,16 @@ button.btn-delete {
   font-size: 8px;
 }
 
+.text-copyright {
+  margin-left: 02px;
+}
 /* Right side footer */
 
 .right-side-footer{
   display: flex;
   justify-content: right;
   padding: 0 20px;
+  gap: 3px;
 }
 
 .right-side-footer div a img {

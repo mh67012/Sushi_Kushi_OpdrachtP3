@@ -53,8 +53,8 @@
         <p>De lekkerste sushi razendsnel bij jou thuis bezorgd.</p>
 
         <div class="zoom-actions">
-          <a class="zoom-btn" href="menu.html">Menu</a>
-          <a class="zoom-btn zoom-btn-outline" href="contact.html">Contact</a>
+          <a class="zoom-btn" href="menu.php">Menu</a>
+          <a class="zoom-btn zoom-btn-outline" href="contact.php">Contact</a>
             </div>
         </div>
     </div>
@@ -71,19 +71,19 @@
       <div class="card">
         <h3>California Roll</h3>
         <p>Krab • avocado • komkommer</p>
-        <a class="btn" href="menu.html">Bestel</a>
+        <a class="btn" href="menu.php">Bestel</a>
       </div>
 
       <div class="card">
         <h3>Salmon Roll</h3>
         <p>Zalm • rijst • nori</p>
-        <a class="btn" href="menu.html">Bestel</a>
+        <a class="btn" href="menu.php">Bestel</a>
       </div>
 
       <div class="card">
         <h3>Vegan Roll</h3>
         <p>Avocado • komkommer • sesam</p>
-        <a class="btn" href="menu.html">Bestel</a>
+        <a class="btn" href="menu.php">Bestel</a>
       </div>
     </div>
   </div>
@@ -151,33 +151,28 @@
 
         <div>
             <a href="https://" target="_blank">
-                <img src="img/github.svg" alt="Insta">
+                <img src="img/_TikTok.svg" alt="Tiktok">
             </a>
         </div>
-
+        
         <div>
             <a href="https://   " target="_blank">
-                <img src="img/x.svg" alt="x">
+                <img src="img/_WhatsApp.svg" alt="WhatsApp">
             </a>
         </div>
 
         <div>
-            <a href="https://youtube.com" target="_blank">
-                <img src="img/youtube.svg" alt="yt">
+            <a href="https://" target="_blank">
+                <img src="img/_Facebook.svg" alt="Facebook">
             </a>
         </div>
 
         <div>
-            <a href="https://instagram.com" target="_blank">
-                <img src="img/instagram.svg" alt="insta">
+            <a href="https://" target="_blank">
+                <img src="img/_Instagram.svg" alt="Instagram">
             </a>
         </div>
 
-        <div>
-            <a href="" class="mail-href">
-                <img src="img/mail.svg" alt="mail">
-            </a>
-        </div>
     </div>
 </div>
 
